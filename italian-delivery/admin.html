@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Панель администратора — La Bella Italia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="admin">
+  <div id="page-loader"><div class="loader-logo">🍕</div><div class="loader-spinner"></div><div class="loader-text">Загрузка...</div></div>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo"><span class="logo-icon">🍕</span> La Bella Italia</a>
+      <div class="navbar-right">
+        <a href="index.html" class="btn-secondary" style="padding:8px 16px;font-size:0.82rem">← На сайт</a>
+        <button class="btn-logout" onclick="logout()">Выйти</button>
+      </div>
+        <button class="burger" id="burger-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-inner">
+      <a href="index.html">🏠 Главная</a>
+      <a href="menu.html">🍕 Меню</a>
+      <div class="mobile-menu-divider"></div>
+      <a href="cart.html">🛒 Корзина <span class="cart-badge" style="display:none;position:relative;top:0;right:0;margin-left:4px">0</span></a>
+      <div id="mobile-auth-links">
+        <a href="auth.html">Войти</a>
+        <a href="auth.html">Регистрация</a>
+      </div>
+      <div id="mobile-user-links" style="display:none">
+        <a href="profile.html">👤 Профиль</a>
+        <a href="admin.html" id="mobile-admin-link" style="display:none">⚙️ Админ</a>
+        <button onclick="logout()">Выйти</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-title">Управление</div>
+      <button class="admin-tab active" data-tab="orders">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Заказы
+      </button>
+      <button class="admin-tab" data-tab="users">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Пользователи
+      </button>
+      <button class="admin-tab" data-tab="menu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+        Меню
+      </button>
+      <button class="admin-tab" data-tab="stats">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Статистика
+      </button>
+    </aside>
+
+    <!-- Main -->
+    <main class="admin-main">
+      <div class="admin-header">
+        <div>
+          <h2>Панель администратора</h2>
+          <div class="admin-welcome">Добро пожаловать, <b id="admin-name">—</b></div>
+        </div>
+        <button class="btn-primary" style="font-size:0.85rem;padding:9px 18px" onclick="loadAdminTab(document.querySelector('.admin-tab.active').dataset.tab)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          Обновить
+        </button>
+      </div>
+      <div id="admin-content">
+        <p style="color:var(--text-muted)">Загрузка...</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/db.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+
+
