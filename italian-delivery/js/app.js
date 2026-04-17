@@ -100,7 +100,7 @@ function menuCardHTML(item) {
   return `
     <div class="menu-card" data-id="${item.id}">
       <div class="menu-card-photo">
-        <img src="${item.photo}" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'menu-card-photo-fallback\\'>${item.img||'🍽️'}</div>'">
+        <img src="${item.photo}" referrerpolicy="no-referrer" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'menu-card-photo-fallback\\'>${item.img||'🍽️'}</div>'">
         ${item.popular ? '<span class="badge-popular">Хит</span>' : ''}
       </div>
       <div class="menu-card-body">
@@ -341,7 +341,7 @@ function renderCart() {
       <div class="cart-item" data-id="${item.id}">
         <div class="cart-item-img">
           ${item.photo
-            ? `<img src="${item.photo}" alt="${item.name}" onerror="this.outerHTML='<span>${item.img||'🍽️'}</span>'">`
+            ? `<img src="${item.photo}" referrerpolicy="no-referrer" alt="${item.name}" onerror="this.outerHTML='<span>${item.img||'🍽️'}</span>'">`
             : `<span>${item.img||'🍽️'}</span>`}
         </div>
         <div class="cart-item-info">
@@ -660,6 +660,8 @@ async function deleteOrder(orderId) {
   await dbDelete('orders', orderId);
   loadAdminTab('orders');
 }
+
+
 
 
 
