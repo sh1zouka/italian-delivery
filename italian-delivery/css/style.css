@@ -801,3 +801,312 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-photo {
   box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05) !important;
 }
+
+/* ===== Beautiful No-Photo Card Design ===== */
+.menu-card-photo {
+  position: relative;
+  background: none !important;
+}
+
+/* Category gradients */
+.menu-card[data-category="pizza"] .menu-card-photo {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7c59f 50%, #ff6b35 100%) !important;
+}
+.menu-card[data-category="pasta"] .menu-card-photo {
+  background: linear-gradient(135deg, #c0392b 0%, #f39c12 50%, #e74c3c 100%) !important;
+}
+.menu-card[data-category="starters"] .menu-card-photo {
+  background: linear-gradient(135deg, #27ae60 0%, #a8e063 50%, #56ab2f 100%) !important;
+}
+.menu-card[data-category="desserts"] .menu-card-photo {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #fda085 100%) !important;
+}
+.menu-card[data-category="drinks"] .menu-card-photo {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%) !important;
+}
+
+/* Hide broken images, show emoji instead */
+.menu-card-photo img {
+  display: none !important;
+}
+
+.menu-card-photo-emoji {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 5rem;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+}
+
+/* Decorative circles in background */
+.menu-card-photo::before {
+  content: '';
+  position: absolute;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  top: -20px; right: -20px;
+}
+.menu-card-photo::after {
+  content: '';
+  position: absolute;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  bottom: -10px; left: 10px;
+  pointer-events: none;
+}
+
+/* Card hover lift */
+.menu-card:hover .menu-card-photo-emoji {
+  transform: scale(1.15) rotate(-5deg);
+  transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
+}
+.menu-card-photo-emoji {
+  transition: transform 0.3s ease;
+}
+
+/* ===== FINAL CARD DESIGN - Gradient + Emoji ===== */
+.menu-card-photo {
+  aspect-ratio: 3/2 !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+.menu-card[data-category="pizza"] .menu-card-photo    { background: linear-gradient(135deg,#ff416c,#ff4b2b) !important; }
+.menu-card[data-category="pasta"] .menu-card-photo    { background: linear-gradient(135deg,#f7971e,#ffd200) !important; }
+.menu-card[data-category="starters"] .menu-card-photo { background: linear-gradient(135deg,#56ab2f,#a8e063) !important; }
+.menu-card[data-category="desserts"] .menu-card-photo { background: linear-gradient(135deg,#f953c6,#b91d73) !important; }
+.menu-card[data-category="drinks"] .menu-card-photo   { background: linear-gradient(135deg,#1a6dff,#00c6ff) !important; }
+
+.menu-card-photo-emoji {
+  position: absolute !important; inset: 0 !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-size: 5.5rem !important;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.25)) !important;
+  transition: transform 0.35s cubic-bezier(.34,1.56,.64,1) !important;
+  z-index: 1 !important;
+}
+.menu-card:hover .menu-card-photo-emoji {
+  transform: scale(1.2) rotate(-8deg) !important;
+}
+
+/* Decorative blobs */
+.menu-card-photo::before {
+  content: '' !important;
+  position: absolute !important; width: 140px !important; height: 140px !important;
+  border-radius: 50% !important; background: rgba(255,255,255,0.12) !important;
+  top: -30px !important; right: -30px !important; z-index: 0 !important;
+}
+.menu-card-photo::after {
+  content: '' !important;
+  position: absolute !important; width: 90px !important; height: 90px !important;
+  border-radius: 50% !important; background: rgba(255,255,255,0.08) !important;
+  bottom: -15px !important; left: 15px !important; z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ============================================
+   СТРАНИЦЫ — ПОЛНЫЙ РЕДИЗАЙН
+   ============================================ */
+
+/* ===== Navbar — стеклянный эффект ===== */
+.navbar {
+  background: rgba(255,255,255,0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(214,48,49,0.08) !important;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06) !important;
+}
+.navbar-logo {
+  background: linear-gradient(135deg, #d63031, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Hero — улучшенный ===== */
+.hero {
+  background: linear-gradient(135deg, #1a0000 0%, #2d0505 40%, #1a0a00 100%) !important;
+  padding: 100px 1.5rem 90px !important;
+}
+.hero-bg-img { opacity: 0.12 !important; }
+.hero h1 { text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+.hero-tag {
+  background: rgba(253,203,110,0.15) !important;
+  border-color: rgba(253,203,110,0.3) !important;
+  color: #fdcb6e !important;
+}
+.hero-stat-num { font-size: 2rem !important; }
+.hero-photo {
+  border-radius: 24px !important;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05) !important;
+}
+
+/* ===== Features strip ===== */
+.features-strip {
+  background: linear-gradient(90deg, #fff5f5, #fff, #fff5f5) !important;
+  border-bottom: 1px solid #ffeaea !important;
+  padding: 1.25rem 1.5rem !important;
+}
+.feature-item { color: #555 !important; font-weight: 600 !important; }
+.feature-item svg { color: #d63031 !important; }
+
+/* ===== Section titles ===== */
+.section-title {
+  font-size: 1.8rem !important;
+  background: linear-gradient(135deg, #1a1a1a, #d63031);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-title::after {
+  background: linear-gradient(90deg, #d63031, #ff6b6b) !important;
+  width: 48px !important; height: 4px !important;
+  border-radius: 4px !important;
+}
+
+/* ===== Bonus section ===== */
+.bonus-section {
+  background: linear-gradient(135deg, #0f0000 0%, #2d0505 50%, #1a0a00 100%) !important;
+  position: relative; overflow: hidden;
+}
+.bonus-section::before {
+  content: '🍕';
+  position: absolute; font-size: 20rem; opacity: 0.03;
+  right: -4rem; top: -4rem; pointer-events: none;
+  line-height: 1;
+}
+.bonus-card {
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(253,203,110,0.2) !important;
+  border-radius: 20px !important;
+  padding: 2rem !important;
+  backdrop-filter: blur(10px) !important;
+}
+.bonus-card-num { font-size: 2.5rem !important; }
+
+/* ===== Page header (меню, корзина, профиль) ===== */
+.page-header {
+  background: linear-gradient(135deg, #1a0000 0%, #2d0505 60%, #1a0a00 100%) !important;
+  padding: 3rem 1.5rem !important;
+  position: relative; overflow: hidden;
+}
+.page-header::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.page-header h1 {
+  font-size: 2.2rem !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+/* ===== Auth page ===== */
+.auth-page {
+  background: linear-gradient(135deg, #fff5f5 0%, #f8f7f5 50%, #fff0f0 100%) !important;
+}
+.auth-card {
+  border-radius: 24px !important;
+  box-shadow: 0 20px 60px rgba(214,48,49,0.12), 0 4px 20px rgba(0,0,0,0.08) !important;
+  border: 1px solid rgba(214,48,49,0.08) !important;
+}
+.auth-card h2 {
+  background: linear-gradient(135deg, #d63031, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.5rem !important;
+}
+.auth-logo { font-size: 3rem !important; }
+
+/* ===== Profile card ===== */
+.profile-card {
+  border-radius: 20px !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08) !important;
+  border: 1px solid rgba(214,48,49,0.08) !important;
+}
+.profile-avatar {
+  width: 88px !important; height: 88px !important;
+  background: linear-gradient(135deg, #d63031, #ff6b6b) !important;
+  box-shadow: 0 8px 24px rgba(214,48,49,0.35) !important;
+  font-size: 2.2rem !important;
+}
+.profile-name { font-size: 1.3rem !important; }
+.profile-bonus-box {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7) !important;
+  border-radius: 16px !important;
+  border: 1px solid #fde68a !important;
+}
+.profile-bonus-num { font-size: 2.2rem !important; }
+
+/* ===== Order cards ===== */
+.order-card {
+  border-radius: 14px !important;
+  border: 1px solid rgba(214,48,49,0.08) !important;
+}
+.order-card:hover {
+  border-color: rgba(214,48,49,0.2) !important;
+  box-shadow: 0 8px 24px rgba(214,48,49,0.08) !important;
+}
+
+/* ===== Cart summary ===== */
+.cart-summary {
+  border-radius: 20px !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08) !important;
+  border: 1px solid rgba(214,48,49,0.08) !important;
+}
+.cart-summary h3 {
+  font-size: 1.2rem !important;
+  background: linear-gradient(135deg, #1a1a1a, #d63031);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Buttons улучшенные ===== */
+.btn-primary {
+  background: linear-gradient(135deg, #d63031, #ff4b4b) !important;
+  box-shadow: 0 4px 15px rgba(214,48,49,0.3) !important;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #b71c1c, #d63031) !important;
+  box-shadow: 0 6px 20px rgba(214,48,49,0.45) !important;
+  transform: translateY(-2px) !important;
+}
+.btn-add-cart {
+  background: linear-gradient(135deg, #d63031, #ff4b4b) !important;
+}
+
+/* ===== Admin sidebar ===== */
+.admin-sidebar {
+  background: linear-gradient(180deg, #111 0%, #1a0505 100%) !important;
+}
+.admin-tab.active {
+  background: linear-gradient(135deg, #d63031, #ff4b4b) !important;
+  box-shadow: 0 4px 12px rgba(214,48,49,0.3) !important;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: linear-gradient(180deg, #111 0%, #0a0000 100%) !important;
+}
+
+/* ===== Stat cards ===== */
+.stat-card {
+  border-radius: 16px !important;
+  border: 1px solid rgba(214,48,49,0.08) !important;
+}
+.stat-num {
+  background: linear-gradient(135deg, #d63031, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Scrollbar красивый ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f8f7f5; }
+::-webkit-scrollbar-thumb { background: linear-gradient(#d63031, #ff6b6b); border-radius: 3px; }
+
+/* ===== Selection color ===== */
+::selection { background: rgba(214,48,49,0.15); color: #d63031; }

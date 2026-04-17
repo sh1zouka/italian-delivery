@@ -98,9 +98,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 function menuCardHTML(item) {
   const macros = item.macros || {};
   return `
-    <div class="menu-card" data-id="${item.id}">
+    <div class="menu-card" data-id="${item.id}" data-category="${item.category}">
       <div class="menu-card-photo">
-        <img src="${item.photo}" referrerpolicy="no-referrer" alt="${item.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'menu-card-photo-fallback\\'>${item.img||'🍽️'}</div>'">
+        <div class="menu-card-photo-emoji">${item.img || '🍽️'}</div>
         ${item.popular ? '<span class="badge-popular">Хит</span>' : ''}
       </div>
       <div class="menu-card-body">
